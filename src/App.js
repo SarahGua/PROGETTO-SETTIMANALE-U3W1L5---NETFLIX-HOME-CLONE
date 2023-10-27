@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css"
+import NavBar from './Components/NavBar';
+import Footer from './Components/Footer';
+import Main from './Components/Main';
+import FilmList from './Components/FilmList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
+      <Main />
+      <FilmList saga={'Harry Potter'}/>
+      <FilmList saga={'Star Wars'}/>
+      <FilmList saga={'Lord of the rings'}/>
+      <FilmList saga={'Avengers'}/>
+      <Footer/>
     </div>
   );
 }
