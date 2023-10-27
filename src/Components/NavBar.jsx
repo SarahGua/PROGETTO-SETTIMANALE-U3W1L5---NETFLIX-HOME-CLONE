@@ -1,7 +1,7 @@
 import { Component } from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
 import { Search, BellFill, PersonCircle} from "react-bootstrap-icons"
-import logo from "../logo.png "
+// import logo from "../logo.png "
 
 class NavBar extends Component {
     render(){
@@ -32,8 +32,8 @@ class NavBar extends Component {
         data-bs-theme="dark"
         >
             <div className="container-fluid">
-            <a className="navbar-brand" href="#home"
-                ><img src={logo} alt="logo"/></a>
+            {/* <a className="navbar-brand" href="#home"
+                ><img src={logo} alt="logo"/></a> */}
             <button
                 className="navbar-toggler"
                 type="button"

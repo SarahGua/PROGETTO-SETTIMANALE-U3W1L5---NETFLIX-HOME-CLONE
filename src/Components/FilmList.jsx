@@ -64,7 +64,7 @@ class FilmList extends Component {
 
                         return (
                             <>
-                                <Col sm={6} md={4} lg={2} className="col mt-3 d-flex justify-content-center">
+                                <Col xs={12} sm={6} md={4} lg={2} className="col mt-3 d-flex justify-content-center">
                                 <img className="img-fluid" src={movie.Poster} alt="movie" key={movie.imdbID}/>
                                 </Col>
                             </>
