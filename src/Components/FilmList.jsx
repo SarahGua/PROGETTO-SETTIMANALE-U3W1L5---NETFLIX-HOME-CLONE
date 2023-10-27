@@ -1,9 +1,10 @@
 import { Component } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Carousel, Col, Row, Spinner } from "react-bootstrap";
 
 class FilmList extends Component {
     state = {
-        movies: []
+        movies: [],
+        isLoading: true,
     }
 
     getMovies = () => {
@@ -11,6 +12,18 @@ class FilmList extends Component {
         .then((res) => {
             if(res.ok){
                 return res.json()
+            } 
+            if (res.status >= 100 && res.status < 200) {
+                console.log("Informazioni per il client");
+            }
+            if (res.status >= 300 && res.status < 399) {
+                console.log("Redirezione");
+            }
+            if (res.status >= 400 && res.status < 499) {
+                console.log("Richiesta errata");
+            }
+            if (res.status >= 500 && res.status < 599) {
+                console.log("Errore sul server");
             } else {
                 throw new Error ('Errore nel recupero dei film')
             }
@@ -18,10 +31,16 @@ class FilmList extends Component {
         .then((data) => {
             console.log('DATI RECUPERATI', data)
             this.setState({
-                movies: data.Search
+                movies: data.Search,
+                isLoading: false,
             })
         })
-        .catch((err) => console.log('ERRORE NEL RICHIAMO DEI DATI', err))
+        .catch((err) => {
+            console.log('ERRORE NEL RICHIAMO DEI DATI', err)
+            this.setState({
+                isLoading: false,
+            })
+        })
     }
 
     componentDidMount(){
@@ -31,20 +50,56 @@ class FilmList extends Component {
     render(){
         return (
         <div className="container-fluid pt-4 bg-dark text-white" data-bs-theme="dark">
-            <h4>{this.props.saga}</h4>
-            <Row>
+            <h4 className="mt-5">{this.props.saga}</h4>
+            <Row className="">
+            {this.state.isLoading && (
+                <div className="text-center mt-2">
+                    <Spinner animation="border" variant="danger" />
+                </div>
+                                    
+            )}
             {
-                this.state.movies.map((movie) => {
-                    return (
-                        <>
-                            <Col>
-                            <img className="img-fluid" src={movie.Poster} alt="movie" key={movie.imdbID}/>
-                            </Col>
-                        </>
-                    )
+                this.state.movies.map((movie, index) => {
+                    if (index<6){
+
+                        return (
+                            <>
+                                <Col sm={6} md={4} lg={2} className="col mt-3 d-flex justify-content-center">
+                                <img className="img-fluid" src={movie.Poster} alt="movie" key={movie.imdbID}/>
+                                </Col>
+                            </>
+                        )
+                    }
                 }) 
             } 
             </Row>
+
+
+            {/* <Carousel>
+                <Carousel.Item>
+                    <ExampleCarouselImage text="First slide" />
+                    <Carousel.Caption>
+                    <h3>First slide label</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <ExampleCarouselImage text="Second slide" />
+                    <Carousel.Caption>
+                    <h3>Second slide label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <ExampleCarouselImage text="Third slide" />
+                    <Carousel.Caption>
+                    <h3>Third slide label</h3>
+                    <p>
+                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                    </p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel> */}
         
             {/* <h4>Trending Now</h4>
             <div

@@ -18,9 +18,9 @@ class Main extends Component {
                         Genres
                         </button>
                         <ul className="dropdown-menu">
-                        <li className="dropdown-item"> Comedy</li>
-                        <li><a className="dropdown-item" href="#">Drama</a></li>
-                        <li><a className="dropdown-item" href="#">Thriller</a></li>
+                        <li className="dropdown-item" href="#"> Comedy</li>
+                        <li className="dropdown-item" href="#">Drama</li>
+                        <li className="dropdown-item" href="#">Thriller</li>
                         </ul>
                     </div>
                     </div>
