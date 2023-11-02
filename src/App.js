@@ -11,11 +11,12 @@ import MovieDetails from './Components/MovieDetails';
 function App() {
   return (
     <BrowserRouter>
+
     <div>
       <NavBar />
       <Main />
       <Routes>
-      <Route element={<TvShows />} path='/tvshows' />
+      <Route element={<TvShows />} path="/tvshows" />
       <Route element={
         <>
           <FilmList saga={'Harry Potter'}/>
@@ -24,9 +25,9 @@ function App() {
           <FilmList saga={'Avengers'}/>
         </>
       } path="/"/>
-      <Route element={MovieDetails} path='/moviedetail/:movieId'/>
+      <Route element={<MovieDetails />} path="/moviedetail/:movieId"/>
       </Routes>
-      <Footer/>
+      <Footer/>     
     </div>
     </BrowserRouter>
   );

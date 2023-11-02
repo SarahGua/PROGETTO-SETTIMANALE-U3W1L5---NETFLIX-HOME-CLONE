@@ -66,7 +66,7 @@ class FilmList extends Component {
                         return (
                             <>
                                 <Col xs={12} sm={6} md={4} lg={2} className="col mt-3 d-flex justify-content-center">
-                                <Link><img className="img-fluid" src={movie.Poster} alt="movie" key={movie.imdbID} /></Link>
+                                <Link to={'/moviedetail/' + movie.imdbID}><img className="img-fluid" src={movie.Poster} alt="movie" key={movie.imdbID} /></Link>
                                 </Col>
                             </>
                         )
