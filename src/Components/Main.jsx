@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Main extends Component {
     render(){
@@ -6,7 +7,9 @@ class Main extends Component {
             <div className="container-fluid pt-4 bg-dark text-white" data-bs-theme="dark">
                 <div className="d-flex justify-content-between">
                 <div className="d-flex">
-                    <h2 className="mb-4">TV Shows</h2>
+                    <Link to='/tvshows'><h2 className="mb-4">TV Shows</h2></Link>
+                    {/* <a href="/tvshows"><h2 className="mb-4 text-white">TV Shows</h2></a> */}
+                    {/* <h2 className="mb-4">TV Shows</h2> */}
                     <div className="btn-group" role="group">
                     <div className="dropdown ms-4 mt-1">
                         <button

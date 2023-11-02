@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Carousel, Col, Row, Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class FilmList extends Component {
     state = {
@@ -65,7 +66,7 @@ class FilmList extends Component {
                         return (
                             <>
                                 <Col xs={12} sm={6} md={4} lg={2} className="col mt-3 d-flex justify-content-center">
-                                <img className="img-fluid" src={movie.Poster} alt="movie" key={movie.imdbID}/>
+                                <Link><img className="img-fluid" src={movie.Poster} alt="movie" key={movie.imdbID} /></Link>
                                 </Col>
                             </>
                         )
